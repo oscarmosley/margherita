@@ -11,6 +11,8 @@
 
 Drag a file, pick a slice, done. Margherita converts images, video, audio, PDFs, documents and archives without opening a single window. Everything happens locally on your Mac.
 
+A free, open-source alternative to Tangerine. Not affiliated with Tangerine or its developers.
+
 <!-- add a screenshot or gif of the wheel here -->
 
 <a href="https://buymeacoffee.com/oscarmosley" target="_blank">
@@ -19,7 +21,7 @@ Drag a file, pick a slice, done. Margherita converts images, video, audio, PDFs,
 
 ## Install
 
-Download `Margherita.zip` from the [latest release](../../releases/latest), unzip it and move the app into your `Applications` folder.
+Download `Margherita-1.0.0.dmg` from the [latest release](../../releases/latest), open it and move the app into your `Applications` folder.
 
 > [!NOTE]
 > Margherita isn't notarised yet, so the first time you open it, right click the app and choose **Open**.
