@@ -45,6 +45,7 @@ Both shortcuts can be changed in Settings.
 - [x] Glass or solid wheel style and custom accent colour
 - [x] Hide the Dock icon, menu bar icon, or both
 - [x] FFmpeg bundled, nothing extra to install
+- [ ] File tools (coming soon)
 - [ ] Notarised builds
 - [ ] Homebrew cask
 
