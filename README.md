@@ -20,9 +20,10 @@ A free, open-source alternative to Tangerine. Not affiliated with Tangerine or i
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50">
 </a>
 </p>
+
 ## Install
 
-Download `the .dmg` from the [latest release](../../releases/latest), open it and move the app into your `Applications` folder.
+Download the .dmg from the [latest release](../../releases/latest), open it and move the app into your `Applications` folder.
 
 > [!NOTE]
 > Margherita isn't notarised yet, so the first time you open it, right click the app and choose **Open**.
