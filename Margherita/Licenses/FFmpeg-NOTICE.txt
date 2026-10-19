@@ -1,0 +1,21 @@
+FFmpeg and ffprobe
+Copyright (c) 2000-2026 the FFmpeg developers.
+https://ffmpeg.org/
+These are separate executables, not linked into Margherita.
+The selected static builds enable GPL and version3: GPL v3 or later applies.
+See FFmpeg-GPL-3.txt and https://ffmpeg.org/legal.html.
+Additional codec libraries retain their respective licences.
+
+Build provider and build scripts
+https://ffmpeg.martin-riedl.de/
+https://git.martin-riedl.de/ffmpeg/build-script
+Pinned FFmpeg 9.0.2 release, 2026-09-20.
+The build helper records the actual configuration in bin/*-version.txt.
+Publisher ZIP SHA256 values are pinned in scripts/bundle-ffmpeg.sh.
+Only signatures/quarantine attributes are changed locally; codecs are not modified.
+
+This source archive does not redistribute the media binaries. The local build
+downloads them directly from the provider. Before distributing a built app,
+supply the exact corresponding FFmpeg and codec-library sources, build scripts,
+and all applicable notices/licences. A generic source link is not a substitute
+for fulfilling redistribution obligations. Do not distribute nonfree builds.
