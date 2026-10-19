@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "scope": "ConversionEngine native image/PDF/movie routes covered by test_v9_engine_audit.py; not a claim of all application routes",
+  "environment": "Linux; no macOS SDK/runtime",
+  "static_evidence": {
+    "status": "pass",
+    "command": "python3 -m unittest discover -s Tests -p test_v9_engine_audit.py -v",
+    "checks": [
+      "Swift syntax parsing only",
+      "source routing contracts"
+    ]
+  },
+  "mac_harness": {
+    "status": "mac-only-untested",
+    "compiled": false,
+    "executed": false,
+    "reason": "macOS-only unittest skipped on Linux; neither SDK typechecking nor actual media decoding has run"
+  },
+  "routes": [
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "jpeg",
+      "backend": "ImageIO when writable; optional FFmpeg otherwise",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual first-frame decode",
+        "original dimensions",
+        "white JPEG alpha background"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "png",
+      "backend": "ImageIO when writable; optional FFmpeg otherwise",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual first-frame decode",
+        "original dimensions",
+        "valid pixels"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "heic",
+      "backend": "ImageIO when writable; optional FFmpeg otherwise",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual first-frame decode",
+        "original dimensions",
+        "valid pixels"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "tiff",
+      "backend": "ImageIO when writable; optional FFmpeg otherwise",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual first-frame decode",
+        "original dimensions",
+        "valid pixels"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "gif",
+      "backend": "ImageIO when writable; optional FFmpeg otherwise",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual first-frame decode",
+        "original dimensions",
+        "valid pixels"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "webp",
+      "backend": "ImageIO when writable; optional FFmpeg otherwise",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual first-frame decode",
+        "original dimensions",
+        "valid pixels"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "avif",
+      "backend": "ImageIO when writable; optional FFmpeg otherwise",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual first-frame decode",
+        "original dimensions",
+        "valid pixels"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "bmp",
+      "backend": "ImageIO when writable; optional FFmpeg otherwise",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual first-frame decode",
+        "original dimensions",
+        "valid pixels"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "resize",
+      "backend": "native",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual decode",
+        "explicit dimension transformation"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "rotate",
+      "backend": "native",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual decode",
+        "explicit dimension transformation"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "pdf",
+      "backend": "native",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "actual decode",
+        "one valid PDF page"
+      ]
+    },
+    {
+      "source": "generated-three-page-pdf",
+      "target": "pdfPNG",
+      "backend": "CoreGraphics CGPDFPage draw",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "exact page count",
+        "every output decodes",
+        "300x150 raster dimensions"
+      ]
+    },
+    {
+      "source": "generated-three-page-pdf",
+      "target": "pdfJPEG",
+      "backend": "CoreGraphics CGPDFPage draw",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "exact page count",
+        "every output decodes",
+        "300x150 raster dimensions"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "wav",
+      "backend": "direct NativeMovieAudio AVAssetReader plus AVAudioFile",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "nonzero decoded PCM samples",
+        "two channels",
+        "duration within 80ms",
+        "missing-track rejection",
+        "pre-cancellation"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "aiff",
+      "backend": "direct NativeMovieAudio AVAssetReader plus AVAudioFile",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "nonzero decoded PCM samples",
+        "two channels",
+        "duration within 80ms",
+        "missing-track rejection",
+        "pre-cancellation"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "caf",
+      "backend": "direct NativeMovieAudio AVAssetReader plus AVAudioFile",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "nonzero decoded PCM samples",
+        "two channels",
+        "duration within 80ms",
+        "missing-track rejection",
+        "pre-cancellation"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "wav",
+      "backend": "production ConversionEngine dispatch",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "real output decoder",
+        "audio/video track count as applicable",
+        "duration as applicable",
+        "valid output"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "aiff",
+      "backend": "production ConversionEngine dispatch",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "real output decoder",
+        "audio/video track count as applicable",
+        "duration as applicable",
+        "valid output"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "caf",
+      "backend": "production ConversionEngine dispatch",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "real output decoder",
+        "audio/video track count as applicable",
+        "duration as applicable",
+        "valid output"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "m4a",
+      "backend": "production ConversionEngine dispatch",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "real output decoder",
+        "audio/video track count as applicable",
+        "duration as applicable",
+        "valid output"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "mp4",
+      "backend": "production ConversionEngine dispatch",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "real output decoder",
+        "audio/video track count as applicable",
+        "duration as applicable",
+        "valid output"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "mov",
+      "backend": "production ConversionEngine dispatch",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "real output decoder",
+        "audio/video track count as applicable",
+        "duration as applicable",
+        "valid output"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "m4v",
+      "backend": "production ConversionEngine dispatch",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "real output decoder",
+        "audio/video track count as applicable",
+        "duration as applicable",
+        "valid output"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "mute",
+      "backend": "production ConversionEngine dispatch",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "real output decoder",
+        "audio/video track count as applicable",
+        "duration as applicable",
+        "valid output"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "snapshot",
+      "backend": "production ConversionEngine dispatch",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "real output decoder",
+        "audio/video track count as applicable",
+        "duration as applicable",
+        "valid output"
+      ]
+    },
+    {
+      "source": "generated-movie-with-stereo-audio",
+      "target": "gif",
+      "backend": "production ConversionEngine dispatch",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "real output decoder",
+        "audio/video track count as applicable",
+        "duration as applicable",
+        "15 decoded GIF frames"
+      ]
+    },
+    {
+      "source": "generated-animated-gif",
+      "target": "mp4",
+      "backend": "production ConversionEngine to optional FFmpeg; not native AVAsset export",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "dependency": "local FFmpeg with MP4 encoder",
+      "planned_assertions": [
+        "video track exists",
+        "duration matches animation",
+        "actual middle-frame decode"
+      ]
+    },
+    {
+      "source": "generated-alpha-png-2048x64",
+      "target": "png-with-chosen-maxDimension512",
+      "backend": "ImageIO",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "decoded 512x16 pixels",
+        "explicit chosen dimension honoured independently of Resize tool"
+      ]
+    },
+    {
+      "source": "svg",
+      "target": "native-raster",
+      "backend": "ImageIO decoder declaration required; no NSImage/QuickLook preview substitution",
+      "static_status": "pass",
+      "runtime_status": "mac-only-untested",
+      "runtime_evidence": null,
+      "planned_assertions": [
+        "query CGImageSource decoder identifiers",
+        "decode real 120x60 SVG fixture if advertised",
+        "log separate NSImage acceptance without claiming raster support"
+      ]
+    }
+  ],
+  "artifact_validation": {
+    "status": "implemented-mac-only-untested",
+    "before_install": true,
+    "checks": [
+      "all native image frames decode",
+      "native image dimensions match chosen cap and rotation",
+      "PDF readable and page-folder count exact",
+      "PCM/AAC first buffer decodes",
+      "native media positive duration and input match when readable",
+      "native video first frame decodes",
+      "muted output contains no audio track"
+    ],
+    "limitations": [
+      "does not decode every frame of native video",
+      "does not validate enhancer-only output codecs using Apple decoders",
+      "does not inspect archive or office semantic contents here",
+      "runtime validation itself remains unexecuted on macOS"
+    ]
+  },
+  "dynamic_mac_inventory": {
+    "status": "mac-only-untested",
+    "source": "Action.available called on generated real PNG, PDF, WAV, MOV and animated GIF fixtures, basic and advanced",
+    "compiled": false,
+    "executed": false,
+    "office_automation": "not requested; no Office inputs or output actions",
+    "json_output": "set MARGHERITA_ENGINE_AUDIT_JSON to preserve actual runtime engine-action-results.json",
+    "scope": "every offered action for these real fixtures only; static planned routes are not the authoritative discovered inventory"
+  }
+}

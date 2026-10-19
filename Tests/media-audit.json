@@ -1,0 +1,4386 @@
+{
+  "ffmpeg_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "swift_version": "Swift version 6.0.3 (swift-6.0.3-RELEASE)",
+  "platform": "Linux",
+  "production_source": "Margherita/ExtendedMedia.swift",
+  "discovery_override_only": true,
+  "native_audio": "not executed; macOS required",
+  "routes": [
+    {
+      "source": "silent-video",
+      "target": "audio-rejection",
+      "status": "pass"
+    },
+    {
+      "source": "mp3",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp3",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp3",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp3",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp3",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp3",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp3",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp3",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp3",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "flac",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "flac",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "flac",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "flac",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "flac",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "flac",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "flac",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "flac",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "flac",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "ogg",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "ogg",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "ogg",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "ogg",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "ogg",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "ogg",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "ogg",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "ogg",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "ogg",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "opus",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "opus",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "opus",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "opus",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "opus",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "opus",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "opus",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "opus",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "opus",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wma",
+      "target": "mp3",
+      "duration": 1.224,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wma",
+      "target": "flac",
+      "duration": 1.194667,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wma",
+      "target": "ogg",
+      "duration": 1.197333,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wma",
+      "target": "opus",
+      "duration": 1.287,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wma",
+      "target": "wma",
+      "duration": 1.238,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wma",
+      "target": "wav",
+      "duration": 1.194667,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wma",
+      "target": "aiff",
+      "duration": 1.194667,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wma",
+      "target": "caf",
+      "duration": 1.194667,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wma",
+      "target": "m4a",
+      "duration": 1.215833,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wav",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wav",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wav",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wav",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wav",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wav",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wav",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wav",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wav",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "aiff",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "aiff",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "aiff",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "aiff",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "aiff",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "aiff",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "aiff",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "aiff",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "aiff",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "caf",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "caf",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "caf",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "caf",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "caf",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "caf",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "caf",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "caf",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "caf",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4a",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4a",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4a",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4a",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4a",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4a",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4a",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4a",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4a",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "mp4",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "mov",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "m4v",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "mkv",
+      "duration": 1.237,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "webm",
+      "duration": 1.224,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "avi",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "wmv",
+      "duration": 1.286,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmv2",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "gif",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "50/3"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "mp4",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "mp4",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "mov",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "m4v",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "mkv",
+      "duration": 1.237,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "webm",
+      "duration": 1.224,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "avi",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "wmv",
+      "duration": 1.286,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmv2",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "gif",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "50/3"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "mov",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "ogg",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "opus",
+      "duration": 1.2225,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "m4a",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "mp4",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "mov",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "m4v",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "mkv",
+      "duration": 1.237,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "webm",
+      "duration": 1.224,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "avi",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "wmv",
+      "duration": 1.286,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmv2",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "gif",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "50/3"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "m4v",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "mp3",
+      "duration": 1.272,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "flac",
+      "duration": 1.237333,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "ogg",
+      "duration": 1.237167,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "opus",
+      "duration": 1.243667,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "wma",
+      "duration": 1.238,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "wav",
+      "duration": 1.237333,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "aiff",
+      "duration": 1.237333,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "caf",
+      "duration": 1.237333,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "m4a",
+      "duration": 1.237,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "mp4",
+      "duration": 1.237,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "mov",
+      "duration": 1.237,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "m4v",
+      "duration": 1.237,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "mkv",
+      "duration": 1.258,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "webm",
+      "duration": 1.244,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "avi",
+      "duration": 1.272,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "wmv",
+      "duration": 1.319,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmv2",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "gif",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "50/3"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "mkv",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "mp3",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "flac",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "ogg",
+      "duration": 1.218667,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "opus",
+      "duration": 1.2295,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "wma",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "wav",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "aiff",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "caf",
+      "duration": 1.216,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "m4a",
+      "duration": 1.223,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "mp4",
+      "duration": 1.223,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "mov",
+      "duration": 1.223,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "m4v",
+      "duration": 1.223,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "mkv",
+      "duration": 1.244,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "webm",
+      "duration": 1.231,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "avi",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "wmv",
+      "duration": 1.272,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmv2",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "gif",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "50/3"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "webm",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "mp3",
+      "duration": 1.272,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "flac",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "ogg",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "opus",
+      "duration": 1.2545,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "wma",
+      "duration": 1.249,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "wav",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "aiff",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "caf",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "m4a",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "mp4",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "mov",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "m4v",
+      "duration": 1.248,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "mkv",
+      "duration": 1.269,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "webm",
+      "duration": 1.256,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "avi",
+      "duration": 1.272,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "wmv",
+      "duration": 1.319,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmv2",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "gif",
+      "duration": 1.27,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "50/3"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "avi",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "mp3",
+      "duration": 1.224,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "flac",
+      "duration": 1.194667,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "flac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "ogg",
+      "duration": 1.197333,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "opus",
+      "duration": 1.287,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "wma",
+      "duration": 1.238,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "wav",
+      "duration": 1.194667,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "aiff",
+      "duration": 1.194667,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16be",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "caf",
+      "duration": 1.194667,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "pcm_s16le",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "m4a",
+      "duration": 1.215833,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "mp4",
+      "duration": 1.279833,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "mov",
+      "duration": 1.279833,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "m4v",
+      "duration": 1.279833,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "mkv",
+      "duration": 1.301,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "webm",
+      "duration": 1.287,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "avi",
+      "duration": 1.296,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "wmv",
+      "duration": 1.281,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmv2",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "wmav2",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "avg_frame_rate": "0/0"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "gif",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "50/3"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "wmv",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "gif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "50/3"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "mp4",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "15/1"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "mov",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "15/1"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "m4v",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "15/1"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "mkv",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "15/1"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "webm",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "15/1"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "avi",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "15/1"
+        }
+      ]
+    },
+    {
+      "source": "gif",
+      "target": "wmv",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmv2",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "15/1"
+        }
+      ]
+    },
+    {
+      "source": "webp",
+      "target": "gif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "100/7"
+        }
+      ]
+    },
+    {
+      "source": "webp",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "webp",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "webp",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "avif",
+      "target": "gif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "50/3"
+        }
+      ]
+    },
+    {
+      "source": "avif",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "avif",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "avif",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "bmp",
+      "target": "gif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "100/7"
+        }
+      ]
+    },
+    {
+      "source": "bmp",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "bmp",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "bmp",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "png",
+      "target": "gif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "100/7"
+        }
+      ]
+    },
+    {
+      "source": "png",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "png",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "png",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "jpg",
+      "target": "gif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "100/7"
+        }
+      ]
+    },
+    {
+      "source": "jpg",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "jpg",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "jpg",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "tiff",
+      "target": "gif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "100/7"
+        }
+      ]
+    },
+    {
+      "source": "tiff",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "tiff",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "tiff",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "literal-jpg",
+      "target": "gif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "100/7"
+        }
+      ]
+    },
+    {
+      "source": "literal-jpg",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "literal-jpg",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "literal-jpg",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "mp4",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "mov",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "m4v",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "mkv",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "webm",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "avi",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "wmv",
+      "duration": 1.2,
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "wmv2",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "30/1"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "gif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "gif",
+          "codec_type": "video",
+          "width": 160,
+          "height": 120,
+          "avg_frame_rate": "50/3"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "webp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "webp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "avif",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "av1",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "1/1"
+        }
+      ]
+    },
+    {
+      "source": "silent-video",
+      "target": "bmp",
+      "status": "pass",
+      "streams": [
+        {
+          "codec_name": "bmp",
+          "codec_type": "video",
+          "width": 120,
+          "height": 90,
+          "avg_frame_rate": "25/1"
+        }
+      ]
+    },
+    {
+      "source": "directory",
+      "target": "safety",
+      "status": "pass"
+    },
+    {
+      "source": "playlist",
+      "target": "safety",
+      "status": "pass"
+    },
+    {
+      "source": "invalid",
+      "target": "safety",
+      "status": "pass"
+    },
+    {
+      "source": "overwrite",
+      "target": "safety",
+      "status": "pass"
+    }
+  ]
+}

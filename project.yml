@@ -1,0 +1,48 @@
+name: Margherita
+options:
+  deploymentTarget:
+    macOS: "13.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1.0.0"
+    MACOSX_DEPLOYMENT_TARGET: "13.0"
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGN_STYLE: Manual
+    ENABLE_APP_SANDBOX: NO
+    ENABLE_HARDENED_RUNTIME: NO
+    PRODUCT_BUNDLE_IDENTIFIER: com.oscar.margherita
+    DEVELOPMENT_TEAM: ""
+targets:
+  Margherita:
+    type: application
+    platform: macOS
+    sources:
+      - Margherita
+    info:
+      path: Margherita/Info.plist
+      properties:
+        SUFeedURL: "https://github.com/REPLACE_OWNER/REPLACE_REPOSITORY/releases/latest/download/appcast.xml"
+        SUPublicEDKey: "REPLACE_WITH_GENERATE_KEYS_PUBLIC_KEY"
+        SUEnableAutomaticChecks: false
+        SUAutomaticallyUpdate: false
+        SUVerifyUpdateBeforeExtraction: true
+        CFBundleDisplayName: Margherita
+        CFBundleShortVersionString: "1.0.0"
+        CFBundleVersion: "1.0.0"
+        NSHighResolutionCapable: true
+        LSMinimumSystemVersion: "13.0"
+        NSPrincipalClass: NSApplication
+        CFBundleIconName: AppIcon
+        NSHumanReadableCopyright: "Margherita. Free, local, yours."
+    settings:
+      base:
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+schemes:
+  Margherita:
+    build:
+      targets:
+        Margherita: all
+    run:
+      config: Debug

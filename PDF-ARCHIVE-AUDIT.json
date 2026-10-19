@@ -1,0 +1,2405 @@
+{
+  "schema_version": 1,
+  "scope": "Exact source-target pairs in owned NativeArchives, NativeSlides, PDFOffice and NativeOCR supports/conversion routes, plus explicitly named portable component fixtures. Not whole-app compatibility matrix.",
+  "host": "Linux",
+  "status_definitions": {
+    "portable_helper_pass": "Executed production portable logic, not full macOS route.",
+    "mac_only_untested": "Requires macOS framework execution; portable component status is separately recorded.",
+    "untested": "Implementation route exists but this exact pair has not executed."
+  },
+  "archive_capability_findings": {
+    "rar": "Offered unconditionally; BSD tar/libarchive may decode supported RAR variants without third-party apps. No RAR fixture tested. Unsupported/encrypted variants can fail.",
+    "seven_zip": "PASS portable fixture via libarchive 3.7.2 7zip writer and production extractor, no third-party 7z executable. macOS stock BSD tar remains untested; compression/encryption variants may differ.",
+    "bz2": "PASS portable plain-stream fixture with /usr/bin/bzip2 fallback installed. Offered unconditionally; fallback executable is checked inside extraction, not supports.",
+    "xz": "PASS portable plain-stream fixture with /usr/bin/xz fallback installed. macOS standalone xz is not guaranteed. Offered unconditionally; fallback executable is checked inside extraction, not supports.",
+    "recommendation": "Do not label RAR/7z categorically third-party-required. Mark runtime codec-dependent. For bz2/xz, system libarchive may already decode the source; gating solely on standalone decoder existence can hide working routes."
+  },
+  "routes": [
+    {
+      "owner": "NativeArchives",
+      "source": "zip",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "zip",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tar",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tar",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tgz",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tgz",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gz",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": "/usr/bin/gzip",
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gz",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": "/usr/bin/gzip",
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gzip",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": "/usr/bin/gzip",
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gzip",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": "/usr/bin/gzip",
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "bz2",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": "/usr/bin/bzip2",
+      "requires_third_party": false,
+      "coverage": "Python-generated plain compressed stream extracted by production helper; byte equality checked. Fallback executable installed on audit host."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "bz2",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": "/usr/bin/bzip2",
+      "requires_third_party": false,
+      "coverage": "Python-generated plain compressed stream extracted by production helper; byte equality checked. Fallback executable installed on audit host."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "xz",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": "/usr/bin/xz",
+      "requires_third_party": false,
+      "coverage": "Python-generated plain compressed stream extracted by production helper; byte equality checked. Fallback executable installed on audit host."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "xz",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": "/usr/bin/xz",
+      "requires_third_party": false,
+      "coverage": "Python-generated plain compressed stream extracted by production helper; byte equality checked. Fallback executable installed on audit host."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "rar",
+      "target": "extract",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "No fixture execution for this source."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "rar",
+      "target": "folder",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "No fixture execution for this source."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "7z",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "7z generated with bsdtar --format=7zip and extracted by production helper; no external 7z tool."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "7z",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "7z generated with bsdtar --format=7zip and extracted by production helper; no external 7z tool."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "epub",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "epub",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "docx",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "docx",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "pptx",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "pptx",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "xlsx",
+      "target": "extract",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "xlsx",
+      "target": "folder",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "Generated OOXML/EPUB packages and archive fixtures; identical extract implementation with Glibc/bsdtar substitution."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "odt",
+      "target": "extract",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "No fixture execution for this source."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "odt",
+      "target": "folder",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "No fixture execution for this source."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ods",
+      "target": "extract",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "No fixture execution for this source."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ods",
+      "target": "folder",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar (Apple BSD tar/libarchive)"
+      ],
+      "capability_gate": "Decoder support for actual archive compression/encryption variant is runtime-dependent.",
+      "extra_decoder_fallback": null,
+      "requires_third_party": false,
+      "coverage": "No fixture execution for this source."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "zip",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "zip",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "zip",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "zip",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "zip",
+      "target": "gzip",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Production archive helper with platform substitutions and real subprocesses."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tar",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tar",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tar",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tar",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tar",
+      "target": "gzip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tgz",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tgz",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tgz",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tgz",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "tgz",
+      "target": "gzip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gz",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gz",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gz",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gz",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gz",
+      "target": "gzip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gzip",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gzip",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gzip",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gzip",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "gzip",
+      "target": "gzip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "bz2",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "bz2",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "bz2",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "bz2",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "bz2",
+      "target": "gzip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "xz",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "xz",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "xz",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "xz",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "xz",
+      "target": "gzip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "rar",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "rar",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "rar",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "rar",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "rar",
+      "target": "gzip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "7z",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "7z",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "7z",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "7z",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "7z",
+      "target": "gzip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-file",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-file",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-file",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-file",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-file",
+      "target": "gzip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-folder",
+      "target": "zip",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Production archive helper with platform substitutions and real subprocesses."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-folder",
+      "target": "tar",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Production archive helper with platform substitutions and real subprocesses."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-folder",
+      "target": "tgz",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Production archive helper with platform substitutions and real subprocesses."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-folder",
+      "target": "gz",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Production archive helper with platform substitutions and real subprocesses."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-folder",
+      "target": "gzip",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Production archive helper with platform substitutions and real subprocesses."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-file-batch",
+      "target": "zip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-file-batch",
+      "target": "tar",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-file-batch",
+      "target": "tgz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-file-batch",
+      "target": "gz",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "NativeArchives",
+      "source": "ordinary-file-batch",
+      "target": "gzip",
+      "status": "untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "/usr/bin/tar",
+        "/usr/bin/gzip"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Archive sources must decode with system libarchive; plain bz2/xz can fall back to system executable. RAR/7z need no third party for supported variants, but no guarantee for every variant.",
+      "coverage": "Route present in source; this exact pair not executed."
+    },
+    {
+      "owner": "PDFOffice",
+      "source": "pdf",
+      "target": "docx",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "PDFKit",
+        "CoreGraphics",
+        "ImageIO",
+        "Vision",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "portable_component_status": "pass",
+      "portable_component": "Extracted OOXML package functions with supplied text and fixture PNGs, actual zip packaging and independent readers.",
+      "limitations": "Fixed page facsimile plus text or editable text reflow, not editable layout reconstruction."
+    },
+    {
+      "owner": "PDFOffice",
+      "source": "pdf",
+      "target": "rtf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "PDFKit",
+        "CoreGraphics",
+        "ImageIO",
+        "Vision",
+        "AppKit"
+      ],
+      "requires_third_party": false,
+      "portable_component_status": "not_tested",
+      "portable_component": null,
+      "limitations": "Text only."
+    },
+    {
+      "owner": "PDFOffice",
+      "source": "pdf",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "PDFKit",
+        "CoreGraphics",
+        "ImageIO",
+        "Vision"
+      ],
+      "requires_third_party": false,
+      "portable_component_status": "not_tested",
+      "portable_component": null,
+      "limitations": "Text only."
+    },
+    {
+      "owner": "PDFOffice",
+      "source": "pdf",
+      "target": "pptx",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "PDFKit",
+        "CoreGraphics",
+        "ImageIO",
+        "Vision",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "portable_component_status": "pass",
+      "portable_component": "Extracted OOXML package functions with supplied text and fixture PNGs, actual zip packaging and independent readers.",
+      "limitations": "Raster PDF pages, not editable slide reconstruction."
+    },
+    {
+      "owner": "PDFOffice",
+      "source": "pdf",
+      "target": "xlsx",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "PDFKit",
+        "CoreGraphics",
+        "ImageIO",
+        "Vision",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "portable_component_status": "pass",
+      "portable_component": "Extracted OOXML package functions with supplied text and fixture PNGs, actual zip packaging and independent readers.",
+      "limitations": "Page/line/text rows, not table reconstruction."
+    },
+    {
+      "owner": "NativeSlides",
+      "source": "pptx",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "AppKit",
+        "CoreText",
+        "CoreGraphics",
+        "ImageIO",
+        "/usr/bin/tar"
+      ],
+      "requires_third_party": false,
+      "portable_component_status": "pass",
+      "portable_component": "OOXML parsing, relationship resolution and shape geometry only; not rendering.",
+      "limitations": "No themes/masters/charts/group transforms/rich runs/vector preservation. CoreText fits actual visible text range at 8\u201318pt. Unfitted suffix moves to bounded labeled continuation pages (maximum 2000 extra); no-progress or limit throws without final output. Mac rendering remains untested.",
+      "mac_conditional_test": "V9SlideTextMacAudit.test_actual_coretext_fit_and_continuation; verifies extracted PDF text equals full original ignoring whitespace and includes final sentinel."
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "pdf",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO",
+        "PDFKit"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Unlocked PDF with 1\u2013200 pages.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "pdf",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO",
+        "PDFKit"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Unlocked PDF with 1\u2013200 pages.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "pdf",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO",
+        "PDFKit"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Unlocked PDF with 1\u2013200 pages.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "pdf",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO",
+        "PDFKit"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Unlocked PDF with 1\u2013200 pages.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "pdf",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO",
+        "PDFKit"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "Unlocked PDF with 1\u2013200 pages.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "png",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "png",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "png",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "png",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "png",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "jpg",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "jpg",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "jpg",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "jpg",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "jpg",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "jpeg",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "jpeg",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "jpeg",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "jpeg",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "jpeg",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "heic",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "heic",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "heic",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "heic",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "heic",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "heif",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "heif",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "heif",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "heif",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "heif",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "tif",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "tif",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "tif",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "tif",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "tif",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "tiff",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "tiff",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "tiff",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "tiff",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "tiff",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "bmp",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "bmp",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "bmp",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "bmp",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "bmp",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "gif",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "gif",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "gif",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "gif",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "gif",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "webp",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "webp",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "webp",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "webp",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "webp",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "avif",
+      "target": "txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "avif",
+      "target": "pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "avif",
+      "target": "ocr",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "avif",
+      "target": "ocr-txt",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "UTF-8 text"
+    },
+    {
+      "owner": "NativeOCR",
+      "source": "avif",
+      "target": "searchable-pdf",
+      "status": "mac_only_untested",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Vision",
+        "CoreGraphics",
+        "CoreText",
+        "ImageIO"
+      ],
+      "requires_third_party": false,
+      "capability_gate": "ImageIO AVIF type identifier required by supports(). Other image decoding occurs at runtime; single-frame images only.",
+      "output_semantics": "searchable raster PDF"
+    },
+    {
+      "owner": "PDFOffice portable generation fixture",
+      "source": "supplied-text-and-page-sizes",
+      "target": "docx-fixed",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Foundation",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "coverage": "Independent python-docx/openpyxl/python-pptx readers; images supplied as fixture PNGs. No PDF rendering/OCR involved."
+    },
+    {
+      "owner": "PDFOffice portable generation fixture",
+      "source": "supplied-text-and-page-sizes",
+      "target": "docx-editable",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Foundation",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "coverage": "Independent python-docx/openpyxl/python-pptx readers; images supplied as fixture PNGs. No PDF rendering/OCR involved."
+    },
+    {
+      "owner": "PDFOffice portable generation fixture",
+      "source": "supplied-text-and-page-sizes",
+      "target": "xlsx",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Foundation",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "coverage": "Independent python-docx/openpyxl/python-pptx readers; images supplied as fixture PNGs. No PDF rendering/OCR involved."
+    },
+    {
+      "owner": "PDFOffice portable generation fixture",
+      "source": "supplied-text-and-page-sizes",
+      "target": "pptx",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Foundation",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "coverage": "Independent python-docx/openpyxl/python-pptx readers; images supplied as fixture PNGs. No PDF rendering/OCR involved."
+    },
+    {
+      "owner": "NativeDocuments portable generation fixture",
+      "source": "supplied-text",
+      "target": "epub",
+      "status": "portable_helper_pass",
+      "full_macos_end_to_end": "untested",
+      "dependencies": [
+        "Foundation",
+        "/usr/bin/zip"
+      ],
+      "requires_third_party": false,
+      "coverage": "Extracted production writeEPUB helper; mimetype, spine, Unicode sentinel checked. Not PDF-to-EPUB end-to-end."
+    }
+  ]
+}
