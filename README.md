@@ -13,7 +13,8 @@ Drag a file, pick a slice, done. Margherita converts images, video, audio, PDFs,
 
 A free, open-source alternative to Tangerine. Not affiliated with Tangerine or its developers.
 
-<!-- add a screenshot or gif of the wheel here -->
+<img width="960" height="735" alt="Recording 2026-10-19 at 23 57 12-gifconvert" src="https://github.com/user-attachments/assets/e362577d-c2e5-42fd-8af7-14ee99d87040" />
+
 
 <a href="https://buymeacoffee.com/oscarmosley" target="_blank">
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50">
