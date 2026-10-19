@@ -71,7 +71,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSMe
     @objc private func checkForUpdates() { UpdateController.shared.checkForUpdates() }
     /// User-initiated only. No prompts, embedded checkout or background requests.
     @objc func openSupport() {
-        guard let url = URL(string: "https://buymeacoffee.com/oscarmosley") else { return }
+        guard let url = URL(string: "https://buymeacoffee.com/omo1") else { return }
         NSWorkspace.shared.open(url)
     }
 
