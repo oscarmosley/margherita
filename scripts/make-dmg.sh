@@ -72,7 +72,10 @@ echo "Arranging Finder. Allow Terminal to control Finder if macOS asks."
 sleep 2
 osascript "$ROOT/scripts/layout-dmg.applescript" "$MOUNT" "Margherita $VERSION"
 sync; sleep 3
-test -s "$MOUNT/.DS_Store" || echo "note: Finder layout file not written yet, continuing"
+if [ ! -s "$MOUNT/.DS_Store" ]; then
+  echo "Finder did not save the installer layout. No release DMG was published; retry with Finder automation allowed." >&2
+  exit 1
+fi
 hdiutil detach "$MOUNT"
 ATTACHED=0
 hdiutil convert "$WORK/writable.dmg" -format UDZO -imagekey zlib-level=9 \

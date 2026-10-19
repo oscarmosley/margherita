@@ -10,7 +10,10 @@ class V4Integration(unittest.TestCase):
         self.assertNotIn("advancedControls", views)
         self.assertNotIn("model.advanced", views)
         self.assertNotIn("var advanced", model)
-        self.assertIn("advanced: mode == .tools", (ROOT / "Margherita/OverlayController.swift").read_text())
+        source = (ROOT / "Margherita/OverlayController.swift").read_text()
+        self.assertIn("conversions = Action.available(urls, advanced: false)", source)
+        self.assertIn("tools = Action.available(urls, advanced: true)", source)
+        self.assertIn("snapshot.tools : snapshot.conversions", source)
     def test_native_audio_has_dispatch(self):
         engine = (ROOT / "Margherita/ConversionEngine.swift").read_text()
         self.assertIn("NativeAudio.convert(input: first, to: stage", engine)

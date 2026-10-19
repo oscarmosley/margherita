@@ -39,10 +39,19 @@ on run argv
                     set shows icon preview of viewOptions to false
                 end try
                 set background picture of viewOptions to file ".background:background.tiff"
-                set position of item "Margherita.app" of container window to {220, 198}
-                set position of item "Applications" of container window to {580, 198}
+                -- Wells span y=174...308, optical centre 241. Finder uses icon centres.
+                -- Keep the icons on that centre, not the earlier y=198 offset.
+                set position of item "Margherita.app" of container window to {220, 242}
+                set position of item "Applications" of container window to {580, 242}
                 close
                 open
+                -- Do not silently ship a layout Finder failed to retain.
+                if position of item "Margherita.app" of container window is not {220, 242} then
+                    error "Finder did not retain the Margherita icon position."
+                end if
+                if position of item "Applications" of container window is not {580, 242} then
+                    error "Finder did not retain the Applications icon position."
+                end if
                 update without registering applications
                 delay 2
                 close

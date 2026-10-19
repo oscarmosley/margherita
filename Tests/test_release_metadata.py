@@ -10,17 +10,17 @@ ROOT = Path(__file__).resolve().parents[1]
 class ReleaseMetadata(unittest.TestCase):
     def test_versions_match_release(self):
         info = plistlib.loads((ROOT / "Margherita/Info.plist").read_bytes())
-        self.assertEqual(info["CFBundleShortVersionString"], "1.0.0")
-        self.assertEqual(info["CFBundleVersion"], "1.0.0")
+        self.assertEqual(info["CFBundleShortVersionString"], "1.0.1")
+        self.assertEqual(info["CFBundleVersion"], "1.0.1")
         generator = (ROOT / "scripts/generate_project.py").read_text()
         for field in ("CFBundleShortVersionString", "CFBundleVersion", "MARKETING_VERSION", "CURRENT_PROJECT_VERSION"):
-            self.assertIn(field + '="1.0.0"', generator)
+            self.assertIn(field + '="1.0.1"', generator)
         project = (ROOT / "Margherita.xcodeproj/project.pbxproj").read_text()
         for field in ("MARKETING_VERSION", "CURRENT_PROJECT_VERSION"):
-            self.assertEqual(len(re.findall('"' + field + '" = "1.0.0"', project)), 2)
+            self.assertEqual(len(re.findall('"' + field + '" = "1.0.1"', project)), 2)
         yml = (ROOT / "project.yml").read_text()
-        self.assertIn('CFBundleShortVersionString: "1.0.0"', yml)
-        self.assertIn('CFBundleVersion: "1.0.0"', yml)
+        self.assertIn('CFBundleShortVersionString: "1.0.1"', yml)
+        self.assertIn('CFBundleVersion: "1.0.1"', yml)
 
     def test_full_license_bundled_and_notices_retained(self):
         license = (ROOT / "LICENSE").read_text()

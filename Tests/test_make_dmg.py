@@ -152,17 +152,17 @@ class MakeDMG(unittest.TestCase):
                 self.assertFalse(self.output.exists())
                 self.assert_clean()
 
-    def test_delayed_finder_layout_is_nonfatal(self):
+    def test_unsaved_finder_layout_is_fatal(self):
         result = self.run_script(DMG_TEST_NO_DS_STORE="1")
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("Finder layout file not written yet", result.stdout)
-        self.assertEqual(self.output.read_text(), "mock dmg")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("Finder did not save", result.stderr)
+        self.assertFalse(self.output.exists())
         self.assert_clean()
 
     def test_stock_layout_contract(self):
         layout = (ROOT/"scripts/layout-dmg.applescript").read_text()
         for text in ["on run argv", "with timeout of 60 seconds", "toolbar visible of container window to false",
-                     "sidebar width of container window to 0", "{220, 198}", "{580, 198}",
+                     "sidebar width of container window to 0", "{220, 242}", "{580, 242}",
                      "background.tiff", "icon size of viewOptions to 128", "tell disk volName",
                      "pathbar visible of container window to false"]:
             self.assertIn(text, layout)
@@ -170,6 +170,19 @@ class MakeDMG(unittest.TestCase):
         self.assertIn("for scale in [1, 2]", renderer)
         self.assertIn("NSWorkspace.shared.setIcon", renderer)
         self.assertIn("Drag Margherita into Applications", renderer)
+
+    def test_icon_centres_match_native_artwork_wells(self):
+        import re
+        renderer = (ROOT/"scripts/render-dmg.swift").read_text()
+        layout = (ROOT/"scripts/layout-dmg.applescript").read_text()
+        y, height = map(float, re.search(r"x: x - 76, y: (\d+), width: 152, height: (\d+)", renderer).groups())
+        centre = y + height / 2
+        positions = re.findall(r'set position of item "(?:Margherita.app|Applications)".*?to \{(\d+), (\d+)\}', layout)
+        self.assertEqual(len(positions), 2)
+        self.assertEqual([int(x) for x, _ in positions], [220, 580])
+        for _, icon_y in positions:
+            self.assertLessEqual(abs(int(icon_y) - centre), 1)
+        self.assertIn('Finder did not retain', layout)
 
     def test_lifecycle_order_and_no_changes_to_app(self):
         self.assertEqual(self.run_script().returncode, 0)

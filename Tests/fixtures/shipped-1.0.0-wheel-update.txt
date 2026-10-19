@@ -1,0 +1,16 @@
+    private func update(_ info: NSDraggingInfo) -> NSDragOperation {
+        let p = convert(info.draggingLocation, from: nil)
+        let current = geometry
+        // Hovering the hub flips pages when there are more than 18 choices.
+        if current.pageCount > 1, current.inHub(p), Date().timeIntervalSince(lastPageFlip) > 0.7 {
+            lastPageFlip = Date(); model.page = (model.page + 1) % current.pageCount
+            model.highlighted = nil; SoundEffects.play(.hover)
+            return []
+        }
+        let hit = index(at: info.draggingLocation)
+        if hit != model.highlighted {
+            model.highlighted = hit
+            if hit != nil { SoundEffects.play(.hover) }
+        }
+        return hit == nil ? [] : .copy
+    }
