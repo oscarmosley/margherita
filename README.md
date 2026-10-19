@@ -16,7 +16,7 @@ A free, open-source alternative to Tangerine. Not affiliated with Tangerine or i
 <img width="480" height="367" alt="Recording 2026-10-19 at 23 57 12-gifconvert" src="https://github.com/user-attachments/assets/f4612118-e4f6-41be-a0de-8d4065f1d6fc" />
 
 <p>
-<a href="https://buymeacoffee.com/oscarmosley" target="_blank">
+<a href="https://buymeacoffee.com/omo1" target="_blank">
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50">
 </a>
 </p>
