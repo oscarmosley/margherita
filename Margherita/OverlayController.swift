@@ -8,7 +8,6 @@ final class OverlayController {
     private var wheel: WheelView?
     private var globalMonitor: Any?
     private var localMonitor: Any?
-    private var lastDragCount = -1
     private var dragStartCount = -1
     private var dragActive = false
     private var dismissTimer: Timer?
@@ -58,23 +57,24 @@ final class OverlayController {
         }
         if event.type == .leftMouseDragged { dragActive = true }
         guard dragActive, NSEvent.pressedMouseButtons & 1 != 0 else { return }
-        let pasteboard = NSPasteboard(name: .drag)
-        guard let urls = pasteboard.readObjects(forClasses: [NSURL.self],
-                                               options: [.urlReadingFileURLsOnly: true]) as? [URL],
-              !urls.isEmpty else { return }
-        // Ignore stale drag pasteboards left behind by a previous Finder drag.
-        guard pasteboard.changeCount != dragStartCount else { return }
         let flags = NSEvent.modifierFlags.intersection(.deviceIndependentFlagsMask)
         let mode = Preferences.shared.dragMode(modifiers: flags, pressedKeys: heldKeys)
-        let visible = panel?.isVisible == true
-        if !visible || pasteboard.changeCount != lastDragCount {
-            // A new wheel needs a live trigger; an open wheel keeps its mode once released.
-            guard let mode else { return }
-            previewURLs = urls; lastDragCount = pasteboard.changeCount
-            show(urls, mode: mode)
-        } else if let mode, let wheel {
-            if wheel.mode != mode { wheel.setMode(mode, urls: previewURLs) }
+        // Freeze the resolved source for the mouse-down/up drag session.
+        // Finder may mutate the pasteboard as the pointer enters our destination.
+        if !previewURLs.isEmpty {
+            if let mode, let wheel, wheel.mode != mode {
+                wheel.setMode(mode, urls: previewURLs)
+            }
+            return
         }
+        guard let mode else { return }
+        let pasteboard = NSPasteboard(name: .drag)
+        guard pasteboard.changeCount != dragStartCount,
+              let urls = pasteboard.readObjects(forClasses: [NSURL.self],
+                                               options: [.urlReadingFileURLsOnly: true]) as? [URL],
+              !urls.isEmpty, urls.allSatisfy({ $0.isFileURL }) else { return }
+        previewURLs = urls
+        show(urls, mode: mode)
     }
     private func show(_ urls: [URL], mode: Preferences.DragMode) {
         dismissTimer?.invalidate()
@@ -93,7 +93,7 @@ final class OverlayController {
         let content = NSView(frame: frame)
         content.wantsLayer = true
         let view = WheelView(frame: frame)
-        view.urls = urls; view.setMode(mode, urls: urls)
+        view.setMode(mode, urls: urls)
         view.didDrop = { [weak self] payload, urls in
             self?.hide()
             // Let Finder finish its drag session before opening native dialogs/windows.
@@ -379,14 +379,46 @@ struct WheelFaceView: View {
     }
 }
 
+/// Initial centre hover must never advance to the overflow page (often just GZIP).
+/// A page change requires leaving the hub, returning, then dwelling for 0.7s.
+struct WheelPagingGate {
+    private var leftHub = false
+    private var enteredAt: TimeInterval?
+    mutating func shouldAdvance(inHub: Bool, now: TimeInterval) -> Bool {
+        if !inHub { leftHub = true; enteredAt = nil; return false }
+        guard leftHub else { return false }
+        guard let enteredAt else { self.enteredAt = now; return false }
+        guard now - enteredAt >= 0.7 else { return false }
+        leftHub = false; self.enteredAt = nil
+        return true
+    }
+}
+
+/// All modes share one immutable source and option snapshot, including multi-file
+/// drags. Resolve both conversion modes before a modifier can change mid-drag.
+@MainActor
+struct WheelDragSnapshot {
+    let urls: [URL]
+    let conversions: [Action]
+    let tools: [Action]
+    let fileActions: [FileAction]
+    init(urls: [URL]) {
+        self.urls = urls
+        conversions = Action.available(urls, advanced: false)
+        tools = Action.available(urls, advanced: true)
+        fileActions = Array(FileAction.allCases)
+    }
+}
+
 @MainActor
 final class WheelView: NSView {
     let model = WheelModel()
-    var urls: [URL] = []
+    private var snapshot: WheelDragSnapshot?
+    private var urls: [URL] { snapshot?.urls ?? [] }
     private(set) var mode: Preferences.DragMode = .convert
     private var payloads: [WheelPayload] = []
     var didDrop: ((WheelPayload, [URL]) -> Void)?
-    private var lastPageFlip = Date.distantPast
+    private var pagingGate = WheelPagingGate()
     private var geometry: WheelGeometry { WheelGeometry(count: payloads.count, page: model.page, size: bounds.width) }
 
     override init(frame frameRect: NSRect) {
@@ -399,26 +431,35 @@ final class WheelView: NSView {
     override func draw(_ dirtyRect: NSRect) {}
 
     func setMode(_ mode: Preferences.DragMode, urls: [URL]) {
+        // Each WheelView belongs to one drag; later mode changes reuse its source.
+        if snapshot == nil {
+            guard !urls.isEmpty, urls.allSatisfy({ $0.isFileURL }) else { return }
+            snapshot = WheelDragSnapshot(urls: urls)
+        }
+        guard let snapshot else { return }
+        // Repeated callbacks for the same mode must not reset page or hover.
+        if !model.items.isEmpty, self.mode == mode { return }
         self.mode = mode
         model.side = bounds.width > 0 ? bounds.width : model.side
         model.page = 0; model.highlighted = nil
+        pagingGate = WheelPagingGate()
         switch mode {
         case .convert, .tools:
-            let list = Action.available(urls, advanced: mode == .tools)
+            let list = mode == .tools ? snapshot.tools : snapshot.conversions
             payloads = list.map { .convert($0) }
             model.items = list.enumerated().map { WheelItem(id: $0.offset, label: $0.element.title, symbol: mode == .tools ? $0.element.symbol : nil) }
             model.showIcons = mode == .tools
             model.modeTitle = mode == .tools ? "FILE TOOLS" : "CONVERT TO"
         case .actions:
-            let list = Array(FileAction.allCases)
+            let list = snapshot.fileActions
             payloads = list.map { .file($0) }
             model.items = list.enumerated().map { WheelItem(id: $0.offset, label: $0.element.title, symbol: $0.element.symbol) }
             model.showIcons = true; model.modeTitle = "ACTIONS"
         }
-        let total = urls.reduce(Int64(0)) { sum, url in
+        let total = self.urls.reduce(Int64(0)) { sum, url in
             sum + Int64((try? url.resourceValues(forKeys: [.fileSizeKey]).fileSize) ?? 0)
         }
-        model.sizeText = urls.count > 1 ? String(urls.count) + " files" : ByteCountFormatter.string(fromByteCount: total, countStyle: .file)
+        model.sizeText = self.urls.count > 1 ? String(self.urls.count) + " files" : ByteCountFormatter.string(fromByteCount: total, countStyle: .file)
     }
 
     override func hitTest(_ point: NSPoint) -> NSView? { self }
@@ -428,19 +469,20 @@ final class WheelView: NSView {
     override func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool { index(at: sender.draggingLocation) != nil }
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         guard let i = index(at: sender.draggingLocation), payloads.indices.contains(i),
-              let files = sender.draggingPasteboard.readObjects(forClasses: [NSURL.self],
-                                options: [.urlReadingFileURLsOnly: true]) as? [URL], !files.isEmpty else { return false }
+              !urls.isEmpty else { return false }
+        let files = urls
         let payload = payloads[i]
-        if case .convert(let action) = payload, !Action.available(files, advanced: mode == .tools).contains(action) { return false }
+        // The engine validates the frozen source at execution, not a transient pasteboard.
         SoundEffects.play(.drop)
         didDrop?(payload, files); return true
     }
     private func update(_ info: NSDraggingInfo) -> NSDragOperation {
         let p = convert(info.draggingLocation, from: nil)
         let current = geometry
-        // Hovering the hub flips pages when there are more than 18 choices.
-        if current.pageCount > 1, current.inHub(p), Date().timeIntervalSince(lastPageFlip) > 0.7 {
-            lastPageFlip = Date(); model.page = (model.page + 1) % current.pageCount
+        // Deliberate hub re-entry only, never the initial centre hover.
+        if current.pageCount > 1,
+           pagingGate.shouldAdvance(inHub: current.inHub(p), now: Date.timeIntervalSinceReferenceDate) {
+            model.page = (model.page + 1) % current.pageCount
             model.highlighted = nil; SoundEffects.play(.hover)
             return []
         }
