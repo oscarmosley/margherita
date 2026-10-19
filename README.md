@@ -22,7 +22,7 @@ A free, open-source alternative to Tangerine. Not affiliated with Tangerine or i
 </p>
 ## Install
 
-Download `Margherita-1.0.0.dmg` from the [latest release](../../releases/latest), open it and move the app into your `Applications` folder.
+Download `the .dmg` from the [latest release](../../releases/latest), open it and move the app into your `Applications` folder.
 
 > [!NOTE]
 > Margherita isn't notarised yet, so the first time you open it, right click the app and choose **Open**.
