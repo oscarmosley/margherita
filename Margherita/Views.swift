@@ -370,6 +370,7 @@ struct PermissionsTab: View {
             }.padding(20)
         }
         .onAppear { status.refresh() }
+        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in status.refresh() }
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in status.refresh() }
     }
     private func badge(_ on: Bool, _ yes: String = "Allowed", _ no: String = "Not allowed") -> some View {
@@ -389,12 +390,13 @@ struct PermissionsTab: View {
                 Button("Request") {
                     let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary
                     _ = AXIsProcessTrustedWithOptions(options)
+                    status.refresh()
                 }.controlSize(.small)
             }
             Divider()
             SettingsRow("Input Monitoring") {
                 badge(status.inputMonitoring)
-                Button("Request") { _ = CGRequestListenEventAccess() }.controlSize(.small)
+                Button("Request") { _ = CGRequestListenEventAccess(); status.refresh() }.controlSize(.small)
             }
             Divider()
             HStack {
@@ -402,7 +404,7 @@ struct PermissionsTab: View {
                 Button("Open Input Monitoring settings") { open("Privacy_ListenEvent") }
                 Spacer()
             }.controlSize(.small).padding(.vertical, 8)
-            SettingsCaption("After granting, quit and reopen Margherita. Some apps use private drag formats or intercept modifier keys.")
+            SettingsCaption("Status checks the running copy of Margherita, not an old entry in System Settings. After replacing or rebuilding the app, macOS may keep an obsolete permission entry because local builds are ad-hoc signed. Quit Margherita, remove its old Accessibility and Input Monitoring entries, add the copy in Applications again, then reopen it. Some apps intercept drag formats or modifier keys.")
         }
     }
     private var folderRows: some View {

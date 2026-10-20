@@ -230,6 +230,7 @@ struct MatrixHoverTracker: NSViewRepresentable {
     func updateNSView(_ nsView: TrackerView, context: Context) { apply(nsView) }
     static func dismantleNSView(_ nsView: TrackerView, coordinator: ()) {
         nsView.hover?.set(row: nil, column: nil)
+        nsView.stopObservingScroll()
         nsView.hover = nil
     }
     private func apply(_ v: TrackerView) {
@@ -240,15 +241,48 @@ struct MatrixHoverTracker: NSViewRepresentable {
         weak var hover: MatrixHoverState?
         var rows = 0, columns = 0
         var cellWidth: CGFloat = 1
+        private weak var observedClipView: NSClipView?
+        private var scrollObserver: NSObjectProtocol?
         override var isFlipped: Bool { true }
+        func stopObservingScroll() {
+            if let observer = scrollObserver { NotificationCenter.default.removeObserver(observer) }
+            scrollObserver = nil
+            observedClipView = nil
+        }
+        private func observeScroll() {
+            let clip = enclosingScrollView?.contentView
+            guard clip !== observedClipView else { return }
+            stopObservingScroll()
+            guard let clip = clip else { return }
+            observedClipView = clip
+            clip.postsBoundsChangedNotifications = true
+            scrollObserver = NotificationCenter.default.addObserver(
+                forName: NSView.boundsDidChangeNotification, object: clip, queue: .main
+            ) { [weak self] _ in self?.updateFromPointer() }
+        }
+        deinit { if let observer = scrollObserver { NotificationCenter.default.removeObserver(observer) } }
+        override func viewDidMoveToSuperview() {
+            super.viewDidMoveToSuperview()
+            observeScroll()
+        }
+        private func updateFromPointer() {
+            guard let window = window, window.isKeyWindow, !isHiddenOrHasHiddenAncestor else {
+                hover?.set(row: nil, column: nil)
+                return
+            }
+            update(at: window.mouseLocationOutsideOfEventStream)
+        }
         override func updateTrackingAreas() {
             super.updateTrackingAreas()
+            observeScroll()
             for area in trackingAreas { removeTrackingArea(area) }
             addTrackingArea(NSTrackingArea(rect: bounds,
                 options: [.mouseMoved, .mouseEnteredAndExited, .activeInKeyWindow, .inVisibleRect], owner: self, userInfo: nil))
+            updateFromPointer()
         }
         override func viewDidMoveToWindow() {
             super.viewDidMoveToWindow()
+            observeScroll()
             hover?.set(row: nil, column: nil)
         }
         override func mouseMoved(with event: NSEvent) { update(event) }
@@ -257,8 +291,15 @@ struct MatrixHoverTracker: NSViewRepresentable {
         // Let clicks and scrolling pass through to the page.
         override func hitTest(_ point: NSPoint) -> NSView? { nil }
         private func update(_ event: NSEvent) {
-            let p = convert(event.locationInWindow, from: nil)
+            update(at: event.locationInWindow)
+        }
+        private func update(at location: NSPoint) {
+            let p = convert(location, from: nil)
             guard bounds.contains(p) else {
+                hover?.set(row: nil, column: nil)
+                return
+            }
+            guard visibleRect.contains(p) else {
                 hover?.set(row: nil, column: nil)
                 return
             }
