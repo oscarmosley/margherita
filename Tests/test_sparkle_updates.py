@@ -13,8 +13,8 @@ class SparkleTests(unittest.TestCase):
 
     def test_safe_defaults_and_versions(self):
         info = plistlib.loads((ROOT / "Margherita/Info.plist").read_bytes())
-        self.assertEqual(info["CFBundleVersion"], "1.0.2")
-        self.assertEqual(info["CFBundleShortVersionString"], "1.0.2")
+        self.assertEqual(info["CFBundleVersion"], "1.0.3")
+        self.assertEqual(info["CFBundleShortVersionString"], "1.0.3")
         self.assertEqual(info["SUFeedURL"], "https://raw.githubusercontent.com/oscmo1/margherita/main/appcast.xml")
         self.assertTrue(info["SUEnableAutomaticChecks"])
         self.assertFalse(info["SUAutomaticallyUpdate"])
