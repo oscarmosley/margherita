@@ -46,7 +46,7 @@ for name in ["Debug", "Release"]:
                     DEVELOPMENT_TEAM="", ENABLE_APP_SANDBOX="NO", ENABLE_HARDENED_RUNTIME="NO",
                     ASSETCATALOG_COMPILER_APPICON_NAME="AppIcon", COMBINE_HIDPI_IMAGES="YES",
                     LD_RUNPATH_SEARCH_PATHS=["$(inherited)", "@executable_path/../Frameworks"],
-                    SWIFT_EMIT_LOC_STRINGS="NO", MARKETING_VERSION="1.0.1", CURRENT_PROJECT_VERSION="1.0.1")
+                    SWIFT_EMIT_LOC_STRINGS="NO", MARKETING_VERSION="1.0.2", CURRENT_PROJECT_VERSION="1.0.2")
     target_configs.append(obj("target-" + name, isa="XCBuildConfiguration", buildSettings=settings, name=name))
 pc = obj("project-configs", isa="XCConfigurationList", buildConfigurations=project_configs, defaultConfigurationIsVisible=0, defaultConfigurationName="Release")
 tc = obj("target-configs", isa="XCConfigurationList", buildConfigurations=target_configs, defaultConfigurationIsVisible=0, defaultConfigurationName="Release")
@@ -88,12 +88,12 @@ scheme_dir.mkdir(parents=True,exist_ok=True)
 ''')
 plist = dict(CFBundleDevelopmentRegion="en", CFBundleDisplayName="Margherita", CFBundleExecutable="$(EXECUTABLE_NAME)",
              CFBundleIconName="AppIcon", CFBundleIdentifier="$(PRODUCT_BUNDLE_IDENTIFIER)", CFBundleInfoDictionaryVersion="6.0",
-             CFBundleName="$(PRODUCT_NAME)", CFBundlePackageType="APPL", CFBundleShortVersionString="1.0.1", CFBundleVersion="1.0.1",
+             CFBundleName="$(PRODUCT_NAME)", CFBundlePackageType="APPL", CFBundleShortVersionString="1.0.2", CFBundleVersion="1.0.2",
              LSMinimumSystemVersion="13.0", NSHighResolutionCapable=True, NSPrincipalClass="NSApplication",
              NSHumanReadableCopyright="Margherita. Free, local, yours.",
-             SUFeedURL="https://github.com/REPLACE_OWNER/REPLACE_REPOSITORY/releases/latest/download/appcast.xml",
-             SUPublicEDKey="REPLACE_WITH_GENERATE_KEYS_PUBLIC_KEY",
-             SUEnableAutomaticChecks=False, SUAutomaticallyUpdate=False, SUVerifyUpdateBeforeExtraction=True,
+             SUFeedURL="https://raw.githubusercontent.com/oscmo1/margherita/main/appcast.xml",
+             SUPublicEDKey="hqHGdPpiVljaD7WTTCeGWOv4ddWQY6HDPr/HLB7kpg0=",
+             SUEnableAutomaticChecks=True, SUAutomaticallyUpdate=False, SUVerifyUpdateBeforeExtraction=True,
              NSAppleEventsUsageDescription="Margherita controls installed Office and iWork apps only when you request document conversion. Allow Automation to use their layout export engines.")
 with (root/"Margherita"/"Info.plist").open("wb") as f: plistlib.dump(plist,f)
 print("Generated Margherita.xcodeproj and shared Run scheme.")

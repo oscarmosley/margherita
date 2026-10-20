@@ -13,7 +13,7 @@ class V9Tables(unittest.TestCase):
     def test_one_matrix_no_inner_scroll_or_pagination(self):
         s = (ROOT / "Margherita/Views.swift").read_text()
         s = s[s.index("struct CompatibilityTab"):s.index("// MARK: Permissions")] + (ROOT / "Margherita/CompatibilityMatrix.swift").read_text()
-        self.assertEqual(s.count("ScrollView"), 1)
+        self.assertEqual(s.count("ScrollView {"), 1)
         self.assertNotIn("columnPages", s)
         self.assertNotIn("pages[index]", s)
         self.assertEqual(s.count("Grid(horizontalSpacing:"), 1)

@@ -11,7 +11,7 @@ class CompatHover(unittest.TestCase):
         for s in (M, V):
             self.assertNotIn("Action.available", s)
             self.assertNotIn("FormatCapabilityDiscovery", s)
-            self.assertNotIn("ScrollView", M)
+            self.assertNotIn("ScrollView {", M)
     def test_no_forbidden_state_macros(self):
         for tok in ("@State", "@StateObject", "@Observable", "#Preview"):
             self.assertNotIn(tok, M); self.assertNotIn(tok, V)

@@ -8,7 +8,7 @@ class SupportLink(unittest.TestCase):
     def test_explicit_browser_handler(self):
         source = (ROOT / "Margherita/MargheritaApp.swift").read_text()
         handler = source.split("@objc func openSupport()", 1)[1].split("\n    }", 1)[0]
-        self.assertIn('guard let url = URL(string: "https://buymeacoffee.com/oscarmosley")', handler)
+        self.assertIn('guard let url = URL(string: "https://buymeacoffee.com/omo1")', handler)
         self.assertIn("NSWorkspace.shared.open(url)", handler)
         self.assertEqual(source.count('#selector(openSupport)'), 2)
         self.assertIn('addItem("Support Margherita", #selector(openSupport), to: menu)', source)
@@ -24,5 +24,5 @@ class SupportLink(unittest.TestCase):
 
     def test_readme_link(self):
         source = (ROOT / "README.md").read_text()
-        self.assertIn('href="https://buymeacoffee.com/oscarmosley"', source)
+        self.assertIn('href="https://buymeacoffee.com/omo1"', source)
         self.assertNotIn("buymeacoffee.com/YOURNAME", source)
