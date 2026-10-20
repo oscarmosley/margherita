@@ -27,6 +27,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSMe
     private var overlay: OverlayController?
     private var acceptsReopen = false
     private var hintItem: NSMenuItem?
+    private var clipboardItem: NSMenuItem?
     func applicationWillFinishLaunching(_ notification: Notification) {
         UserDefaults.standard.set(false, forKey: "NSQuitAlwaysKeepsWindows")
         UserDefaults.standard.set(true, forKey: "ApplePersistenceIgnoreState")
@@ -140,10 +141,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSMe
             }
             let menu = NSMenu()
             menu.delegate = self
+            menu.autoenablesItems = false
             let ready = NSMenuItem(title: "Margherita is ready", action: nil, keyEquivalent: ""); ready.isEnabled = false
             let hint = NSMenuItem(title: AppDelegate.hintText(), action: nil, keyEquivalent: ""); hint.isEnabled = false
             hintItem = hint
             menu.addItem(ready); menu.addItem(hint)
+            menu.addItem(.separator())
+            let clipboard = NSMenuItem(title: "Convert Clipboard", action: nil, keyEquivalent: "")
+            clipboardItem = clipboard
+            menu.addItem(clipboard)
+            ClipboardConversion.shared.refresh(clipboard)
             menu.addItem(.separator())
             addItem("Settings…", #selector(openSettings), to: menu, key: ",")
             addItem("Check for Updates…", #selector(checkForUpdates), to: menu)
@@ -162,7 +169,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSMe
         let p = Preferences.shared
         return "\(p.triggerLabel): Convert · \(p.toolsLabel): Tools · \(p.actionsShortcut.display): Actions"
     }
-    func menuWillOpen(_ menu: NSMenu) { hintItem?.title = AppDelegate.hintText() }
+    func menuWillOpen(_ menu: NSMenu) {
+        hintItem?.title = AppDelegate.hintText()
+        if let clipboardItem { ClipboardConversion.shared.refresh(clipboardItem) }
+    }
     /// Monochrome pizza slice (crust arc, cheese wedge, pepperoni cut-outs). Template image so macOS tints it.
     static func pizzaMenuBarIcon() -> NSImage {
         let image = NSImage(size: NSSize(width: 18, height: 18), flipped: false) { _ in

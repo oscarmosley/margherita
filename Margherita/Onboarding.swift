@@ -377,11 +377,17 @@ struct KeyCap: View {
     }
 }
 
-/// Demo wheel: the real WheelFaceView driven by a scripted WheelModel.
+/// Demo wheel: the real face and hit geometry, with pointer-driven selection.
 struct DemoWheel: View {
     @ObservedObject var st: WheelState
     var body: some View {
         WheelFaceView(model: st.model)
+            .onContinuousHover { phase in
+                switch phase {
+                case .active(let location): st.hover(at: location)
+                case .ended: st.clearHover()
+                }
+            }
             .overlay(alignment: .top) {
                 HStack(spacing: 7) {
                     Image(systemName: "photo").foregroundStyle(WheelPalette.cream.opacity(0.8))
@@ -432,7 +438,6 @@ struct KeyCatcher: NSViewRepresentable {
 final class WheelState: ObservableObject {
     @Published var appeared = false
     let model = WheelModel()
-    private var timer: Timer?
     init(labels: [String] = [], symbols: [String]? = nil, title: String = "CONVERT TO", size: CGFloat = 270) {
         model.side = size
         model.modeTitle = title
@@ -441,17 +446,18 @@ final class WheelState: ObservableObject {
         model.items = labels.enumerated().map { WheelItem(id: $0.offset, label: $0.element, symbol: symbols?[$0.offset]) }
         model.highlighted = nil
     }
-    func start() {
-        appeared = true
-        guard timer == nil, !NSWorkspace.shared.accessibilityDisplayShouldReduceMotion else { return }
-        timer = Timer.scheduledTimer(withTimeInterval: 1.1, repeats: true) { [weak self] _ in
-            Task { @MainActor [weak self] in
-                guard let self = self else { return }
-                let n = max(self.model.items.count, 1)
-                self.model.highlighted = ((self.model.highlighted ?? -1) + 1) % n
-            }
-        }
+    /// Continuous hover uses SwiftUI's top-left origin; the live drag wheel's
+    /// shared sectorIndex expects bottom-left coordinates.
+    func hover(at location: CGPoint) {
+        let point = CGPoint(x: location.x, y: model.side - location.y)
+        model.highlighted = model.geometry.sectorIndex(at: point)
     }
-    func stop() { timer?.invalidate(); timer = nil }
-    deinit { timer?.invalidate() }
+    func clearHover() { model.highlighted = nil }
+    func start() {
+        clearHover()
+        appeared = true
+    }
+    func stop() {
+        clearHover()
+    }
 }

@@ -53,7 +53,7 @@ final class AppModel: ObservableObject {
         files = urls.filter { $0.isFileURL && $0.fileExists }
         status = files.count == 1 ? files[0].lastPathComponent : String(files.count) + " files, ready."
     }
-    func run(_ action: Action, urls provided: [URL]? = nil) {
+    func run(_ action: Action, urls provided: [URL]? = nil, clipboard: ClipboardInput? = nil) {
         let inputs = provided ?? files
         guard !inputs.isEmpty else { return }
         if action == .copyPath {
@@ -72,7 +72,16 @@ final class AppModel: ObservableObject {
             if alert.runModal() != .alertFirstButtonReturn { return }
         }
         var options = preferences.options
-        if preferences.location == "folder" {
+        if clipboard != nil {
+            // Clipboard data has no source folder. Honor a saved default folder,
+            // otherwise use Downloads rather than the private staging directory.
+            if preferences.location == "folder", !preferences.folder.isEmpty {
+                options.destination = URL(fileURLWithPath: preferences.folder, isDirectory: true)
+            } else {
+                options.destination = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first
+                    ?? FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Downloads", isDirectory: true)
+            }
+        } else if preferences.location == "folder" {
             guard !preferences.folder.isEmpty else { preferences.chooseFolder(); return }
             options.destination = URL(fileURLWithPath: preferences.folder, isDirectory: true)
         } else if preferences.location == "ask" {
@@ -109,7 +118,14 @@ final class AppModel: ObservableObject {
         task = Task {
             let worker = Task.detached(priority: .userInitiated) {
                 await ConversionCancellation.$current.withValue(cancellation) {
-                    await engine.run(inputs, action: action, options: snapshot) { amount, message in
+                    defer { clipboard?.clean() }
+                    do { try clipboard?.stage() }
+                    catch {
+                        var failed = EngineResult()
+                        if !cancellation.isCancelled { failed.notes = ["Could not prepare the clipboard: " + error.localizedDescription] }
+                        return failed
+                    }
+                    return await engine.run(inputs, action: action, options: snapshot) { amount, message in
                         Task { @MainActor [weak self] in
                             guard let self, self.busy, self.activeBatch == batch, self.progressBatch == batch,
                                   !cancellation.isCancelled else { return }
@@ -132,6 +148,14 @@ final class AppModel: ObservableObject {
                     history.insert(entry, at: 0); persist()
                 }
                 return
+            }
+            if let clipboard, !wasCancelled, result.notes.isEmpty {
+                let encoded = await Task.detached(priority: .utility) {
+                    ClipboardConversion.resultData(result.outputs)
+                }.value
+                if activeBatch == batch, !wasCancelled {
+                    ClipboardConversion.publish(encoded, changeCount: clipboard.changeCount)
+                }
             }
             let count = result.outputs.count
             status = count == 0 ? "No files created." : String(count) + (count == 1 ? " output ready." : " outputs ready.")
